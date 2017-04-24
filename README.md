@@ -49,7 +49,11 @@ Run the test suite with `py.test -n auto --html=report.html`
 
 The `py.test -n auto` comes from the `pytest-xdist` library and automatically detects the number of tests to run. `--html=report.html` generates the html report in the path specified.
 
+#### Reporter
+
 The result should be one test Passed and one test Failed. Open `report.html` in a browser to see the report.
+
+##### (back to the code)
 
 Two things to point out here:
 
