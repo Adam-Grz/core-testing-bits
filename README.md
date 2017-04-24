@@ -26,7 +26,28 @@ The `requests` library will help us fetch some url data.
 
 ### Example code
 
+This chapter will showcase the concurrent test execution and the html reports generated afterwards.
+```
+import requests
+import unittest
+import re
 
+class Test_API_Tests(unittest.TestCase):
+    def setUp(self):
+        print ""
+    def test_one(self):
+        response = requests.get("http://thedemosite.co.uk/")
+        title = str(re.findall('<title>(.*?)</title>',response.text))
+        self.assertIn("FREE example PHP code", title)
+    def test_two(self):
+        response = requests.get("http://thedemosite.co.uk/")
+        title = str(re.findall('<title>(.*?)</title>',response.text))
+        self.assertIn("NOT IN THE TITLE!!!", title)
+```
+
+Run the test suite with `py.test -n auto --html=report.html`
+
+The `py.test -n auto` comes from the `pytest-xdist` library and automatically detects the number of tests to run. `--html=report.html` generates the html report in the path specified.
 
 ### Documentation
 
