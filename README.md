@@ -47,7 +47,7 @@ class Test_API_Tests(unittest.TestCase):
 
 Run the test suite with `py.test -n auto --html=report.html`
 
-The `py.test -n auto` comes from the `pytest-xdist` library and automatically detects the number of tests to run. `--html=report.html` generates the html report in the path specified.
+The `py.test -n auto` comes from the `pytest-xdist` library and automatically detects the number of tests to run. The `--html=report.html` generates the html report in the path specified.
 
 #### Reporter
 
