@@ -30,6 +30,14 @@ The `requests` library will help us fetch some url data.
 
 ### Documentation
 
+https://pypi.python.org/pypi/pytest-xdist
+
+https://pypi.python.org/pypi/pytest-html
+
+https://docs.python.org/2/library/unittest.html
+
+http://docs.python-requests.org/en/master/
+
 ## JavaScript
 
 ### Installation, packages
