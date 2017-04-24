@@ -99,7 +99,7 @@ def test_two(abc):
     assert ("NOT IN THE TITLE!!!" in abc)
 ```
 
-The fixture is applied to the `abc` method, and the method return `title`, which is what we want. In the two tests that we've got we call the `abc` as parameter. `abc` now has the value of `title`, ie. is a string.
+The fixture is applied to the `abc` method, and the method returns `title`, which is what we want. In the two tests that we've got we call the `abc` as parameter. `abc` now has the value of `title`, ie. is a string.
 Note that we've changed the `assert` command, as we're no longer using the `unittest` library.
 
 ### Documentation
