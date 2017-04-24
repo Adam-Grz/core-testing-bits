@@ -49,6 +49,29 @@ Run the test suite with `py.test -n auto --html=report.html`
 
 The `py.test -n auto` comes from the `pytest-xdist` library and automatically detects the number of tests to run. `--html=report.html` generates the html report in the path specified.
 
+The result should be one test Passed and one test Failed. Open `report.html` in a browser to see the report.
+
+Two things to point out here:
+
+1. `unittest` is written such that variables only exist within the scope of one test (one `def`). As such there are repeated lines in the code (lines 10-11 and 14-15). There is a way to go around it, like this:
+
+```
+import requests
+import unittest
+import re
+
+class Test_API_Tests(unittest.TestCase):
+    def setUp(self):
+        self.__class__.response = requests.get("http://thedemosite.co.uk/")
+        self.__class__.title = str(re.findall('<title>(.*?)</title>',self.__class__.response.text))
+    def test_one(self):
+        self.assertIn("FREE example PHP code", self.__class__.title)
+    def test_two(self):
+        self.assertIn("NOT IN THE TITLE!!!", self.__class__.title)
+```
+
+2. `import re` is an unfortunate result of the limitations of the `requests` library, namely - lack of an HTML parser. The line `str(re.findall('<title>(.*?)</title>',self.__class__.response.text))` extracts the data from between the *title* tags and converts the data from unicode to string.
+
 ### Documentation
 
 https://pypi.python.org/pypi/pytest-xdist
