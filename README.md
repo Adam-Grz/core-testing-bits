@@ -57,7 +57,7 @@ The result should be one test Passed and one test Failed. Open `report.html` in 
 
 Two things to point out here:
 
-1. `unittest` is written such that variables only exist within the scope of one test (one `def`). As such there are repeated lines in the code (lines 10-11 and 14-15). There is a way to go around it, like this:
+1. `unittest` is written such that variables only exist within the scope of one test (one `def`). As such there are repeated lines in the code (lines 10-11 and 14-15). There is a way to go around it, for example like this:
 
 ```
 import requests
@@ -73,14 +73,42 @@ class Test_Example_Tests(unittest.TestCase):
     def test_two(self):
         self.assertIn("NOT IN THE TITLE!!!", self.__class__.title)
 ```
+The other way, using fixtures, is describes below.
 
 2. `import re` is an unfortunate result of the limitations of the `requests` library, namely - lack of an HTML parser. The line `str(re.findall('<title>(.*?)</title>',self.__class__.response.text))` extracts the data from between the *title* tags and converts the data from unicode to string. The conversion is necessary for the `assertIn`, as we're comparing `string`s there.
+
+### Fixtures
+
+The code above can be rewritten using fixtures. Example:
+
+```
+import requests
+import re
+import pytest
+
+@pytest.fixture
+def abc():
+    resp = requests.get("http://thedemosite.co.uk/")
+    title = str(re.findall('<title>(.*?)</title>',resp.text))
+    return title
+
+def test_one(abc):
+    assert ("FREE example PHP code" in abc)
+
+def test_two(abc):
+    assert ("NOT IN THE TITLE!!!" in abc)
+```
+
+The fixture is applied to the `abc` method, and the method return `title`, which is what we want. In the two tests that we've got we call the `abc` as parameter. `abc` now has the value of `title`, ie. is a string.
+Note that we've changed the `assert` command, as we're no longer using the `unittest` library.
 
 ### Documentation
 
 https://pypi.python.org/pypi/pytest-xdist
 
 https://pypi.python.org/pypi/pytest-html
+
+https://docs.pytest.org/en/latest/fixture.html
 
 https://docs.python.org/2/library/unittest.html
 
