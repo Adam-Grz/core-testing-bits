@@ -1,2 +1,14 @@
 # core-testing-bits
-• Concurrent test execution (PY / JS) • HTML reporting (PY / JS)
+
+This repository contains installation instructions and examples in Python and JavaScript for:
+
+• Concurrent test execution
+• HTML reporting
+
+## Python
+
+### Installation, packages
+
+## JavaScript
+
+### Installation, packages
