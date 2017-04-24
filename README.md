@@ -74,7 +74,7 @@ class Test_API_Tests(unittest.TestCase):
         self.assertIn("NOT IN THE TITLE!!!", self.__class__.title)
 ```
 
-2. `import re` is an unfortunate result of the limitations of the `requests` library, namely - lack of an HTML parser. The line `str(re.findall('<title>(.*?)</title>',self.__class__.response.text))` extracts the data from between the *title* tags and converts the data from unicode to string. The conversion is necessary for the `assertIn`, as it compares strings.
+2. `import re` is an unfortunate result of the limitations of the `requests` library, namely - lack of an HTML parser. The line `str(re.findall('<title>(.*?)</title>',self.__class__.response.text))` extracts the data from between the *title* tags and converts the data from unicode to string. The conversion is necessary for the `assertIn`, as we're comparing `string`s there.
 
 ### Documentation
 
