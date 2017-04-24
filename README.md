@@ -20,7 +20,7 @@ pip install pytest-html
 pip install requests
 ```
 
-`pytest` is a framework which allows you to easily write and run your tests. The `xdist` extension is used for concurrent test run, and the `html` creates html reports.
+`pytest` is a framework which allows you to easily write and run your tests. The `xdist` extension is used for the concurrent test run, and the `html` creates html reports.
 
 The `requests` library will help us fetch some url data.
 
