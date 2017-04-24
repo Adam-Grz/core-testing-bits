@@ -32,7 +32,7 @@ import requests
 import unittest
 import re
 
-class Test_API_Tests(unittest.TestCase):
+class Test_Example_Tests(unittest.TestCase):
     def setUp(self):
         print ""
     def test_one(self):
@@ -64,7 +64,7 @@ import requests
 import unittest
 import re
 
-class Test_API_Tests(unittest.TestCase):
+class Test_Example_Tests(unittest.TestCase):
     def setUp(self):
         self.__class__.response = requests.get("http://thedemosite.co.uk/")
         self.__class__.title = str(re.findall('<title>(.*?)</title>',self.__class__.response.text))
