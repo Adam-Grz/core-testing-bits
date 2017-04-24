@@ -22,12 +22,13 @@ pip install requests
 
 `pytest` is a framework which allows you to easily write and run your tests. The `xdist` extension is used for concurrent test run, and the `html` creates html reports.
 
-https://pypi.python.org/pypi/pytest-xdist
-
-https://pypi.python.org/pypi/pytest-html
-
 The `requests` library will help us fetch some url data.
 
+### Example code
+
+
+
+### Documentation
 
 ## JavaScript
 
