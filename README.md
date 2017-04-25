@@ -159,4 +159,8 @@ exports.config = {
 
 The tests are located in `./test/specs`, but they can be located anywhere else, as long as the path in `run.js` is correct.
 
-The key here is `multiCapabilities`. That option will run the tests concurrently, as long as `maxInstances == number of your tests`. Hence it is good to use the `files.legth` there.
+The key here is `multiCapabilities`. That option will run the tests concurrently, but make sure that `maxInstances == number of your tests`. Hence it is good to use the `files.legth` there.
+
+There are two tests in test/specs and a page object file in test/pageObjects. The tests are simple (copied from protractortest.org) and only serve a purpose to showcase the concurrent execution.
+
+Start protractor with `protractor run.js`. Two Chrome windows should open (one on top of the other, but there are two) and the tests will be executed simultaneously.
