@@ -133,7 +133,7 @@ This installs the Protractor globally and starts up a Selenium server.
 
 ### Example code
 
-Concurrent test execution has not been implemented in Protractor very well. There is one way that I've found to run your tests in parallel, which involves scripting one test per one file.
+Concurrent test execution has not been implemented in Protractor very well. There is one way that I've found to run your tests in parallel, which involves scripting **one test per one file**.
 
 Create a starter file, eg. `run.js`
 
