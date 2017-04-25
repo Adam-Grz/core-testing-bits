@@ -58,7 +58,7 @@ The result should be one test Passed and one test Failed. Open `report.html` in 
 
 Two things to point out here:
 
-1. `unittest` is written such that variables only exist within the scope of one test (one `def`). As such there are repeated lines in the code (lines 10-11 and 14-15). There is a way to go around it, for example like this:
+1. The variables only exist within the scope of one test (one `def`, or method). As such there are repeated lines in the code (lines 10-11 and 14-15). There is a way to go around it, for example like this:
 
 ```
 import requests
