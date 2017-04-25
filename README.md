@@ -129,10 +129,6 @@ webdriver-manager start
 
 This installs the Protractor globally and starts up a Selenium server.
 
-We're going to use the protractor-jasmine2-html-reporter in this example.
-
-Get it with `npm install protractor-jasmine2-html-reporter --save-dev` or globally with `-g`
-
 
 
 
