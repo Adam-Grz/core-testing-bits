@@ -66,14 +66,14 @@ import re
 
 class Test_Example_Tests(unittest.TestCase):
     def setUp(self):
-        self.__class__.response = requests.get("http://thedemosite.co.uk/")
-        self.__class__.title = str(re.findall('<title>(.*?)</title>',self.__class__.response.text))
+        response = requests.get("http://thedemosite.co.uk/")
+        self.title = str(re.findall('<title>(.*?)</title>',self.response.text))
     def test_one(self):
-        self.assertIn("FREE example PHP code", self.__class__.title)
+        self.assertIn("FREE example PHP code", self.title)
     def test_two(self):
-        self.assertIn("NOT IN THE TITLE!!!", self.__class__.title)
+        self.assertIn("NOT IN THE TITLE!!!", self.title)
 ```
-The other way, using fixtures, is describes below.
+Another way, using fixtures, is described below.
 
 2. `import re` is an unfortunate result of the limitations of the `requests` library, namely - lack of an HTML parser. The line `str(re.findall('<title>(.*?)</title>',self.__class__.response.text))` extracts the data from between the *title* tags and converts the data from unicode to string. The conversion is necessary for the `assertIn`, as we're comparing `string`s there.
 
