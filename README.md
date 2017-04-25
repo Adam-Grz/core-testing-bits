@@ -76,7 +76,7 @@ class Test_Example_Tests(unittest.TestCase):
 ```
 Another way, using fixtures, is described below.
 
-2. `import re` is an unfortunate result of the limitations of the `requests` library, namely - lack of an HTML parser. The line `str(re.findall('<title>(.*?)</title>',self.__class__.response.text))` extracts the data from between the *title* tags and converts the data from unicode to string. The conversion is necessary for the `assertIn`, as we're comparing `string`s there.
+2. `import re` is an unfortunate result of the limitations of the `requests` library, namely - lack of an HTML parser. The line `str(re.findall('<title>(.*?)</title>',self.response.text))` extracts the data from between the *title* tags and converts the data from unicode to string. The conversion is necessary for the `assertIn`, as we're comparing `string`s there.
 
 ### Fixtures
 
