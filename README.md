@@ -130,3 +130,33 @@ webdriver-manager start
 ```
 
 This installs the Protractor globally and starts up a Selenium server.
+
+### Example code
+
+Concurrent test execution has not been implemented in Protractor very well. There is one way that I've found to run your tests in parallel, which involves scripting one test per one file.
+
+Create a starter file, eg. `run.js`
+
+Use this config:
+```
+var fs = require('fs');
+var files = fs.readdirSync('./test/specs');
+
+exports.config = {
+  framework: 'jasmine',
+  seleniumAddress: 'http://localhost:4444/wd/hub',
+  specs: ['./test/specs/test_*.js'],
+  jasmineNodeOpts: {
+    showColors: true,
+  },
+  multiCapabilities: [{
+        browserName: 'chrome',
+        shardTestFiles: true,
+        maxInstances: files.length,
+    }]
+};
+```
+
+The tests are located in `./test/specs`, but they can be located anywhere else, as long as the path in `run.js` is correct.
+
+The key here is `multiCapabilities`. That option will run the tests concurrently, as long as `maxInstances == number of your tests`. Hence it is good to use the `files.legth` there.
