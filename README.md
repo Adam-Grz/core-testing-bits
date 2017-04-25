@@ -117,6 +117,8 @@ http://docs.python-requests.org/en/master/
 
 ## JavaScript (with Protractor)
 
+### Installation, packages
+
 To get Protractor, first install node.js.
 
 Then run these commands:
@@ -128,13 +130,3 @@ webdriver-manager start
 ```
 
 This installs the Protractor globally and starts up a Selenium server.
-
-
-
-
-
-
-
-
-
-### Installation, packages
