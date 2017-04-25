@@ -115,6 +115,30 @@ https://docs.python.org/2/library/unittest.html
 
 http://docs.python-requests.org/en/master/
 
-## JavaScript
+## JavaScript (with Protractor)
+
+To get Protractor, first install node.js.
+
+Then run these commands:
+
+```
+npm install -g protractor
+webdriver-manager update
+webdriver-manager start
+```
+
+This installs the Protractor globally and starts up a Selenium server.
+
+We're going to use the protractor-jasmine2-html-reporter in this example.
+
+Get it with `npm install protractor-jasmine2-html-reporter --save-dev` or globally with `-g`
+
+
+
+
+
+
+
+
 
 ### Installation, packages
