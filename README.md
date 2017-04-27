@@ -109,7 +109,7 @@ Note that we've changed the `assert` command, as we're no longer using the `unit
 
 Folder `/Python/multiple_file_tests` now contains 4 test suites, a conf file, and a runner file.
 
-The test suite files 1 and 2 contain webdriver/browser tests, 3 and 4 for contain http requests tests. I've found that using this method, if the tests are mixed, some browsers close too early, resulting in `Errno 61 Connection refused`.
+The test suite files 1 and 2 contain webdriver/browser tests, 3 and 4 contain http requests tests. I've found that using this method, if the tests are mixed, some browsers close too early, resulting in `Errno 61 Connection refused`.
 
 Let's examine the `runner.py` file:
 
@@ -133,7 +133,9 @@ def file_finder():
 subprocess.Popen(["pytest", "-n %i" % file_finder(), "--html=report.html"])
 ```
 
+I import `subprocess` to run a command on the command line, and `glob` to find the test suite files.
 
+The `file_finder` function searches the current directory for `test_*.py` files, and within each file it searches for tests named `test_WD`
 
 ### Helpful documentation
 
