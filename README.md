@@ -103,6 +103,38 @@ def test_two(abc):
 The fixture is applied to the `abc` method, and the method returns `title`, which is what we want. In the two tests that we've got we call the `abc` as parameter. `abc` now has the value of `title`, ie. is a string.
 Note that we've changed the `assert` command, as we're no longer using the `unittest` library.
 
+### Parallel run with multiple files and promises
+
+> Update 27-04-2017
+
+Folder `/Python/multiple_file_tests` now contains 4 test suites, a conf file, and a runner file.
+
+The test suite files 1 and 2 contain webdriver/browser tests, 3 and 4 for contain http requests tests. I've found that using this method, if the tests are mixed, some browsers close too early, resulting in `Errno 61 Connection refused`.
+
+Let's examine the `runner.py` file:
+
+```
+import subprocess
+import glob, os
+
+def file_finder():
+	count = 0
+	tests = 0
+	a = glob.glob("test_*.py")
+	for b in a:
+		f = open(b)
+		contents = f.read()
+		f.close()
+		count = contents.count("def test_WD")
+		tests = tests + count
+	print tests
+	return tests
+
+subprocess.Popen(["pytest", "-n %i" % file_finder(), "--html=report.html"])
+```
+
+
+
 ### Helpful documentation
 
 https://pypi.python.org/pypi/pytest-xdist
