@@ -144,8 +144,9 @@ To use the Promise package, install it with `pip install promise`
 
 In the `test_1suite.py` I'm using the Promise package this way:
 ```
+regbutton = 'body > div > div.ng-scope > div.row.ng-scope > div > a'
 promise = Promise(driver.get('https://cakesolutions.github.io/cake-qa-test/#/'))
-promise.then(driver.find_element_by_css_selector('body > div > div.ng-scope > div.row.ng-scope > div > a').click())
+promise.then(driver.find_element_by_css_selector(regbutton).click())
 ```
 Normally I would have used Expected Conditions and explicitly waited for an element to be visible (or presence located), before executing the next step. Promises allow you to skip explicit waits.
 
