@@ -165,6 +165,8 @@ https://docs.python.org/2/library/unittest.html
 
 http://docs.python-requests.org/en/master/
 
+https://pypi.python.org/pypi/promise
+
 ## JavaScript (with Protractor)
 
 ### Installation, packages
