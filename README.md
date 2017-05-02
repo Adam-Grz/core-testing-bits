@@ -136,7 +136,7 @@ prc.wait()
 
 I import `subprocess` to run a command on the command line, and `glob` to find the test suite files.
 
-The `file_finder` function searches the current directory for `test_*.py` files, and within each file it searches for tests named `test_WD`
+The `file_finder` function searches the current directory for `test_*.py` files, and within each file it searches for tests named `test_WD`. It is important to determine the number of tests which require a browser, since that number is passed to `subprocess.Popen[...]`. This way only the correct number of browser instances will be started, so that a) there won't be any extra open windows at the end, b) each test will have a browser instance and will not prematurely end with `Connection refused`.
 
 ### Helpful documentation
 
