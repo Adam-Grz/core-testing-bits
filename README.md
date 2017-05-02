@@ -138,6 +138,20 @@ I import `subprocess` to run a command on the command line, and `glob` to find t
 
 The `file_finder` function searches the current directory for `test_*.py` files, and within each file it searches for tests named `test_WD`. It is important to determine the number of tests which require a browser, since that number is passed to `subprocess.Popen[...]`. This way only the correct number of browser instances will be started, so that a) there won't be any extra open windows at the end, b) each test will have a browser instance and will not prematurely end with `Connection refused`.
 
+#### Promises
+
+To use the Promise package, install it with `pip install promise`
+
+In the `test_1suite.py` I'm using the Promise package this way:
+```
+promise = Promise(driver.get('https://cakesolutions.github.io/cake-qa-test/#/'))
+promise.then(driver.find_element_by_css_selector('body > div > div.ng-scope > div.row.ng-scope > div > a').click())
+```
+Normally I would have used Expected Conditions and explicitly waited for an element to be visible (or presence located), before executing the next step. Promises allow you to skip explicit waits.
+
+In the example above the URL is loaded and only after the promise is fulfilled does it click on the Registration button.
+
+
 ### Helpful documentation
 
 https://pypi.python.org/pypi/pytest-xdist
