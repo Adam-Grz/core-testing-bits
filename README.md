@@ -130,7 +130,8 @@ def file_finder():
 	print tests
 	return tests
 
-subprocess.Popen(["pytest", "-n %i" % file_finder(), "--html=report.html"])
+prc = subprocess.Popen(["pytest", "-n %i" % file_finder(), "--html=report.html"])
+prc.wait()
 ```
 
 I import `subprocess` to run a command on the command line, and `glob` to find the test suite files.
